@@ -1,6 +1,6 @@
+
 async function getAuthentication(email) {
-    const api_key ="2697a39b988e4b0e895b558adb3c8881";
-    const url = `https://emailvalidation.abstractapi.com/v1/?api_key=${api_key}&email=${email}`
+    const url = `https://emailvalidation.abstractapi.com/v1/?api_key=${config.API_KEY}&email=${email}`
     try {
         let response = await fetch(url);
         let data = await response.json();
