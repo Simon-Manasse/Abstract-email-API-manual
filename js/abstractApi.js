@@ -16,17 +16,12 @@ async function checkEmail() {
     let isCorrectEmail = true;
     if (email === '') {
         alert('You must fill in your email');
-    } else {
-        try {
+    } 
+    else {
             const authentication = await getAuthentication(email);
-            console.log(authentication);    
             isCorrectEmail = isValidFormat(authentication, isCorrectEmail);
             isCorrectEmail = isDsposableEmail(authentication, isCorrectEmail);
-
             goToNextPage(isCorrectEmail);
-        } catch (error) {
-            console.log('Error:', error);
-        }
     }
 }
 
@@ -40,7 +35,7 @@ function saveData() {
 
 function isValidFormat(authentication, checkBool) {
     if (!authentication.is_valid_format.value) {
-        alert('This email is not in a valid fomat.');
+        alert('This email is not in a valid format.');
         checkBool = false;
     }
     return checkBool;
@@ -67,6 +62,5 @@ if (window.location.pathname == '/profile.html') {
         let username = document.getElementById('username')
         username.innerHTML = this.localStorage.getItem('username');
         email.innerHTML = `Email: ${this.localStorage.getItem('email')}`;
-        console.log(this.localStorage.getItem('password'));
     });
 }
